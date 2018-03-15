@@ -1,4 +1,4 @@
-
+﻿
 //游戏状态的枚举
 var state={
     START:0,
@@ -10,22 +10,19 @@ var state={
 
 function GameData(){
     //游戏参数
-    this.gravity=8;
-    this.upJumpSpeed=-30;
-    this.interval=10;
-    this.tubeDeltaX=1;
-    this.flutterSlowFactor=10;
-    this.birdSlowFactor=100;
-    this.windowHeight=600;
-    this.windowWidth=500;
-    this.waveWidth=180;
-    this.skyHeight=600;
-    //this.tubeGap=150;
-    this.tubeGap=200;
-    this.birdStartPos={x:200,y:100};
-    this.maxScore=99;
-    this.tubeWaitTime=200;
-    this.validKeyCode=32;
+    this.interval=30;//游戏图像刷新的间隔时间(毫秒)
+    this.gravity=8;//引力系数
+    this.upJumpSpeed=-30;//小鸟上升时的初速度
+    this.tubeDeltaX=2;//管道每次前进的距离
+    this.validKeyCode=32;//有效按键的编码(空格键)
+    this.birdSlowFactor=100;//减缓小鸟垂直运动的速度
+    this.flutterSlowFactor=5;//经过几次刷新才扇动一次翅膀
+    this.birdStartPos={x:200,y:100};//小鸟初始位置
+    this.waveWidth=180;//管道横向间距
+    this.tubeGap=200;//管道纵向间距
+    this.skyHeight=600;//天空的高度
+    this.maxScore=99;//允许的最高得分
+    //this.tubeWaitTime=200;//游戏开始前的等待时间
 
     //特殊尺寸
     this.canvasSize={width:500,height:600};
@@ -35,6 +32,10 @@ function GameData(){
     this.tubeMaxHeight=320;
     this.minHeight = this.skyHeight - this.tubeGap - this.tubeMaxHeight;
     this.maxHeight = this.skyHeight - this.tubeGap - Math.floor(this.tubeMaxHeight / 10);
+    this.birdPattern={
+      birdState:{normal:"normal",fall:"fall",fly:"fly"},
+      flutterState:{mid:"FlutterMid",down:"FlutterDown",up:"FlutterUp"}
+    };
 
     //所有图片的路径以及尺寸
     this.empty={path:"BirdImage/texture/empty.png",size:{width:24,height:36}};
@@ -67,10 +68,6 @@ function GameData(){
     this.title={path:"BirdImage/texture/title.png",size:{width:178,height:48}};
     this.ground={path:"BirdImage/texture/ground.png",size:{width:659,height:650}};
 
-    this.birdPattern={
-        birdState:{normal:"normal",fall:"fall",fly:"fly"},
-        flutterState:{mid:"FlutterMid",down:"FlutterDown",up:"FlutterUp"}
-    };
 
     //位置固定的图片的加载位置
     this.backgroundPos={x:0,y:0};
