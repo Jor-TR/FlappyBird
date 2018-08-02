@@ -1,25 +1,18 @@
 ﻿import { enums } from "./modules/enums.js";
 
 function GameConfig(){
-    this.initialState = {
 
+    // 游戏初始化状态
+    this.initialState = {
         distance: 0, // 管道队列已前进的距离
         fallSpeed: 0, // 鸟的下坠速度
-
         gameState: enums.gameState.START, // 游戏处于何种状态
         score: 0, // 游戏得分
-
         tubeAreaArray: [], // 管道对信息
-
         birdX: 200, // 鸟的坐标
         birdY: 100, // 鸟的坐标
         birdState: enums.birdPattern.birdState.NORMAL, // 小鸟飞行姿态
         flutterState: enums.birdPattern.flutterState.MID, // 小鸟翅膀姿态
-
-        // 改变这个数就会改变小鸟的翅膀状态
-        flutterFlag: 0,
-        //随机数引擎
-        // e:new Date().getTime(),
     };
 
     //游戏参数
@@ -33,9 +26,9 @@ function GameConfig(){
     this.skyHeight = 600; // 天空的高度
     this.maxScore = 99; // 允许的最高得分
     this.flutterChangeInterval=100; // 每经过多少毫秒扇动一下翅膀
-    //this.tubeWaitTime=200;//游戏开始前的等待时间
+    // this.tubeWaitTime=200;//游戏开始前的等待时间
 
-    //特殊尺寸
+    // 特殊尺寸
     this.canvasSize = { width: 500, height: 600 };
     this.birdSize = { width: 34, height: 34 };
     this.scoreSize = { width: 24, height: 36 };
@@ -44,7 +37,7 @@ function GameConfig(){
     this.minHeight = this.skyHeight - this.tubeGap - this.tubeMaxHeight;
     this.maxHeight = this.skyHeight - this.tubeGap - Math.floor(this.tubeMaxHeight / 10);
 
-    //所有图片的路径以及尺寸
+    // 所有图片的路径以及尺寸
     this.empty = { path: "bird-images/texture/empty.png", size: { width: 24, height: 36 } };
     this.score0 = { path: "bird-images/texture/0.png", size: { width: 24, height: 36 } };
     this.score1 = { path: "bird-images/texture/1.png", size: { width: 24, height: 36 } };
@@ -76,7 +69,7 @@ function GameConfig(){
     this.ground = { path: "bird-images/texture/ground.png", size: { width: 659, height: 650 } };
 
 
-    //位置固定的图片的加载位置
+    // 位置固定的图片的加载位置
     this.backgroundPos = { x: 0, y: 0 };
     this.gameOverPos = {
         x: (this.canvasSize.width - this.gameOver.size.width) / 2,
