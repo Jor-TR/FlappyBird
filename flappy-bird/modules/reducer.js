@@ -17,7 +17,6 @@ export const reducer=(state={},action)=>{
             const newState = {
                 ...state,
             };
-
             newState.birdY += newState.fallSpeed; // 小鸟下落或上升
             newState.fallSpeed += config.gravity; // 由于重力加速度，小鸟速度发生变化
 
@@ -29,6 +28,7 @@ export const reducer=(state={},action)=>{
             }else{
                 newState.birdState=enums.birdPattern.birdState.NORMAL;
             }
+
             // 调整小鸟的翅膀
             const runTime=newState.distance/config.tubeMoveSpeed*config.interval,
                 flutterChangeTimes=Math.floor(runTime/config.flutterChangeInterval);
@@ -84,24 +84,15 @@ export const reducer=(state={},action)=>{
             // 更新分数
             let waveNum= Math.floor((newState.distance - (config.canvasSize.width - newState.birdX) +(config.waveDistance - config.tubeWidth)) / config.waveDistance);
             newState.score =waveNum<0?0:waveNum; 
-            // newState.score=1;
             return newState;
 
         case enums.actionTypes.JUMP_UP:
+
+            // 使小鸟速度骤变为上升，以起到让小鸟向上跳跃的效果
             return {
                 ...state,
                 fallSpeed: config.upJumpSpeed,
             };
-        default:
-            return state;
-    }
-};
-
-const tubeAreaArrayReducer = (state = [], action) => {
-    switch (action.type) {
-        case enums.actionTypes.MOVE_ON:
-
-
         default:
             return state;
     }

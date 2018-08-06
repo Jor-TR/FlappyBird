@@ -16,16 +16,16 @@ function GameConfig(){
     };
 
     //游戏参数
-    this.interval = 30; // 游戏图像刷新的间隔时间(毫秒)
-    this.tubeMoveSpeed = 2; // 管道每次前进的距离
+    this.interval = 34; // 游戏图像刷新的间隔时间(毫秒)
+    this.tubeMoveSpeed = 1; // 管道每次前进的距离
+    this.gravity = 0.1; // 引力系数
+    this.upJumpSpeed = -4; // 小鸟上升时的初速度
+    this.flutterChangeInterval=100; // 每经过多少毫秒扇动一下翅膀
     this.waveDistance = 180; // 管道周期间距
-    this.gravity = 0.6; // 引力系数
-    this.upJumpSpeed = -9; // 小鸟上升时的初速度
     this.validKeyCode = 32; // 有效按键的编码(空格键)
     this.tubeGap = 200; // 管道纵向间距
     this.skyHeight = 600; // 天空的高度
     this.maxScore = 99; // 允许的最高得分
-    this.flutterChangeInterval=100; // 每经过多少毫秒扇动一下翅膀
     // this.tubeWaitTime=200;//游戏开始前的等待时间
 
     // 特殊尺寸

@@ -1,21 +1,25 @@
 import * as funcs from "./functions.js";
 
-// let object = {
-//     image: null,
-//     s: {
-//         sX: 0,
-//         sY: 0,
-//         sWidth: 0,
-//         sHeight: 0,
-//     },
-//     d: {
-//         dX: 0,
-//         dY: 0,
-//         // dWidth: 0,
-//         // dHeight: 0,
-//     },
-// }
-
+/* 
+ *各个函数用于生成对游戏中某种物体的绘画所需的信息对象的promise，
+ *多个promise组合成数组之后传入functions.js模块中的drawPromises函数就可以生成一帧游戏图像；
+ *完整的信息对象结构如下：
+let object = {
+    image: new Image(),
+    s: {
+        sX: 0,
+        sY: 0,
+        sWidth: 0,
+        sHeight: 0,
+    },
+    d: {
+        dX: 0,
+        dY: 0,
+        dWidth: 0,
+        dHeight: 0,
+    },
+}
+*/ 
 export const createScoreLeft = (config, state) => {
     const { score } = state,
         [scoreLeft, scoreRight] = funcs.splitScore(score);
@@ -25,7 +29,7 @@ export const createScoreLeft = (config, state) => {
             dX: config.scoreLeftPos.x,
             dY: config.scoreLeftPos.y,
         }
-    }
+    };
     return new Promise(
         (resolve,reject)=>{
             scoreLeftObject.image.onload=()=>{
@@ -48,7 +52,7 @@ export const createScoreRight = (config, state) => {
             dX: config.scoreRightPos.x,
             dY: config.scoreRightPos.y,
         }
-    }
+    };
     return new Promise(
         (resolve,reject)=>{
             scoreRightObject.image.onload=()=>{

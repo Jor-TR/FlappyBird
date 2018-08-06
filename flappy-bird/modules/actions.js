@@ -1,5 +1,6 @@
 import { enums } from "./enums.js";
 
+// 生成action
 export const actions={
     moveOn:()=>({
         type:enums.actionTypes.MOVE_ON,
